@@ -6,14 +6,14 @@ export interface StoredAnalysis {
   userId: string;
   userEmail: string;
   input: string;
-  result: any;
+  result: unknown;
   createdAt: Date;
 }
 
 const analyses: Map<string, StoredAnalysis> = new Map();
 
 export const store = {
-  createAnalysis(userEmail: string, input: string, result: any): StoredAnalysis {
+  createAnalysis(userEmail: string, input: string, result: unknown): StoredAnalysis {
     const analysis: StoredAnalysis = {
       id: randomUUID(),
       userId: userEmail,

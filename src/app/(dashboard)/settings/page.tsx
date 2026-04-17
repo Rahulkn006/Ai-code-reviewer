@@ -5,6 +5,7 @@ import { useState } from "react";
 import { User, Palette, Shield, LogOut, Loader2, ChevronRight, Moon, Sun, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function SettingsPage() {
   const { data: session, status } = useSession();
@@ -71,10 +72,13 @@ export default function SettingsPage() {
               
               <div className="flex items-center gap-5">
                 {session?.user?.image ? (
-                  <img
+                  <Image
                     src={session.user.image}
                     alt="Avatar"
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-2xl border-2 border-indigo-500/30"
+                    unoptimized
                   />
                 ) : (
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">

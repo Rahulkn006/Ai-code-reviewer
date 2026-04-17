@@ -6,7 +6,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "./prisma"
 
 export const authOptions: NextAuthOptions = {
-  adapter: process.env.NODE_ENV === "development" ? undefined : PrismaAdapter(prisma) as any,
+  adapter: process.env.NODE_ENV === "development" ? undefined : PrismaAdapter(prisma),
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID!,
@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
           email: "dev@localhost", 
           name: "Local Developer",
           image: "https://avatars.githubusercontent.com/u/1?v=4"
-        } as any;
+        };
       }
     }),
   ],
@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session, token }) {
       if (session.user && token.sub) {
-        (session.user as any).id = token.sub;
+        session.user.id = token.sub;
       }
       return session;
     },

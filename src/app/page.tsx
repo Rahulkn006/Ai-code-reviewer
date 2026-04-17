@@ -1,13 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { signIn, useSession } from "next-auth/react"
-import Link from "next/link"
 import { Bug, Lightbulb, Star, BookOpen, Link as LinkIcon, Download } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default function Home() {
           <div className="bg-[#0f111a]/80 backdrop-blur-xl border border-white/5 rounded-3xl p-8 w-full max-w-md shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500" />
             
-            <h2 className="text-2xl font-bold text-white mb-2">Get Started — It's Free</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">Get Started &mdash; It&apos;s Free</h2>
             <p className="text-slate-400 text-sm mb-8">Sign in with Google to start reviewing code instantly.</p>
 
             <div className="space-y-4">

@@ -34,7 +34,7 @@ function parseJSONFromText(text: string) {
   try {
     const cleaned = text.replace(/```json/g, '').replace(/```/g, '').trim();
     return JSON.parse(cleaned);
-  } catch (e) {
+  } catch {
     throw new Error("Failed to parse AI output as JSON: " + text.substring(0, 50));
   }
 }

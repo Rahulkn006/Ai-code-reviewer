@@ -33,10 +33,11 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ result: result || "Review failed" })
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error("API REVIEW ERROR:", error)
     return NextResponse.json({ 
-      error: error.message || "Unknown server error during analysis/storage." 
+      error: errorMessage || "Unknown server error during analysis/storage." 
     }, { status: 500 })
   }
 }

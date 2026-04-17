@@ -2,7 +2,7 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { GitBranch, LogOut, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Navbar() {
@@ -20,11 +20,9 @@ export default function Navbar() {
       <div className="hidden md:block" />
 
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon" asChild>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
-            <GitBranch className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
-          </a>
-        </Button>
+        <a href="https://github.com" target="_blank" rel="noreferrer" className={buttonVariants({ variant: "ghost", size: "icon" })}>
+          <GitBranch className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
+        </a>
 
         {status === "loading" ? (
           <div className="w-10 h-10 rounded-full bg-secondary animate-pulse" />

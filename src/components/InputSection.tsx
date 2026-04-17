@@ -48,8 +48,9 @@ export default function InputSection({ onAnalyze }: { onAnalyze: (type: string, 
         if (!res.ok) throw new Error(data.error);
         await onAnalyze("pdf", `Language Context: ${language}\n\n${data.code}`);
       }
-    } catch (err: any) {
-      alert(`Processing Error: ${err.message}`);
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      alert(`Processing Error: ${errorMessage}`);
     } finally {
       setLoading(false);
     }

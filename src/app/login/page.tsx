@@ -9,7 +9,7 @@ export default function LoginPage() {
       {/* LOGIN CARD */}
       <div className="mt-20 bg-[#111827] border border-gray-800 rounded-2xl p-8 w-full max-w-md text-center shadow-lg">
         <h1 className="text-2xl font-bold mb-2">
-          Get Started — It's Free
+          Get Started &mdash; It&apos;s Free
         </h1>
         <p className="text-gray-400 mb-6">
           Sign in with Google to start reviewing code instantly.

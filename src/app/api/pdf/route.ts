@@ -1,14 +1,19 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 import { extractText } from "unpdf";
+
+// Use dynamic import for pdf-parse to avoid require() lint error if possible, 
+// or keep it but handle the types/imports properly.
+// Since pdf-parse doesn't have good TS types and uses require, 
+// we can keep it but suppress the error correctly.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pdfParse = require("pdf-parse");
 
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    const userId = (session?.user as any)?.id;
+    const userId = session?.user?.id;
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -33,7 +38,8 @@ export async function POST(req: Request) {
       try {
         const data = await pdfParse(buffer);
         textStr = data.text;
-      } catch (pdfParseError) {
+      } catch (err) {
+        console.error("pdf-parse failed:", err);
         throw new Error("Both PDF engines failed to extract text.");
       }
     }
@@ -43,8 +49,9 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ code: textStr.trim() });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error("PDF Parsing error:", error);
-    return NextResponse.json({ error: error.message || "Failed to process PDF" }, { status: 500 });
+    return NextResponse.json({ error: errorMessage || "Failed to process PDF" }, { status: 500 });
   }
 }

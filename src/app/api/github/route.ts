@@ -72,8 +72,8 @@ export async function POST(req: Request) {
             const content = Buffer.from(fileData.content, "base64").toString("utf8");
             concatenatedCode += `\n\n--- File: ${file.path} ---\n\n${content}`;
           }
-        } catch (_e) {
-          console.error(`Failed to fetch ${file.path}`);
+        } catch (err) {
+          console.error(`Failed to fetch ${file.path}`, err);
         }
       })
     );
@@ -85,8 +85,9 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ code: concatenatedCode.trim() });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error("GitHub API error:", error);
-    return NextResponse.json({ error: "Failed to fetch repository data or rate limit exceeded: " + (error.message || String(error)) }, { status: 500 });
+    return NextResponse.json({ error: "Failed to fetch repository data or rate limit exceeded: " + errorMessage }, { status: 500 });
   }
 }
