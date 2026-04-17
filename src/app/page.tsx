@@ -16,28 +16,28 @@ export default function Home() {
   }, [status, router])
 
   if (status === "loading") {
-    return <div className="min-h-screen bg-[#050510] text-white flex items-center justify-center text-2xl">Loading Auth State...</div>
+    return <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-2xl">Loading Auth State...</div>
   }
 
   if (status === "authenticated") {
-    return <div className="min-h-screen bg-[#050510] text-white flex items-center justify-center text-2xl">Redirecting to Dashboard...</div>
+    return <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-2xl">Redirecting to Dashboard...</div>
   }
 
   return (
-    <div className="min-h-screen bg-[#050510] text-slate-200 font-sans selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
         {/* Glow Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-600/20 blur-[120px] rounded-full" />
+          <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 blur-[120px] rounded-full" />
         </div>
 
         {/* HERO SECTION */}
         <div className="relative z-10 flex flex-col items-center pt-24 px-6 max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
-            <div className="bg-gradient-to-tr from-indigo-500 to-purple-500 p-3 rounded-2xl shadow-lg shadow-indigo-500/20">
-              <pre className="text-white font-mono font-bold text-xl leading-none">{'< >'}</pre>
+            <div className="bg-gradient-to-tr from-primary to-amber-600 p-3 rounded-2xl shadow-lg shadow-primary/20">
+              <pre className="text-primary-foreground font-mono font-bold text-xl leading-none">{'< >'}</pre>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white flex items-center">
-              Review<span className="text-indigo-400">IQ</span>
+              Review<span className="text-primary">IQ</span>
             </h1>
           </div>
           
@@ -46,8 +46,8 @@ export default function Home() {
           </p>
 
           {/* LOGIN CARD */}
-          <div className="bg-[#0f111a]/80 backdrop-blur-xl border border-white/5 rounded-3xl p-8 w-full max-w-md shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500" />
+          <div className="bg-card/80 backdrop-blur-xl border border-white/5 rounded-3xl p-8 w-full max-w-md shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-amber-600" />
             
             <h2 className="text-2xl font-bold text-white mb-2">Get Started &mdash; It&apos;s Free</h2>
             <p className="text-slate-400 text-sm mb-8">Sign in with Google to start reviewing code instantly.</p>
@@ -91,72 +91,72 @@ export default function Home() {
 
         {/* FEATURES GRID */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 mt-32 pb-24 border-t border-white/5 pt-16">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">What <span className="text-indigo-400">ReviewIQ</span> Does</h3>
+          <h3 className="text-3xl font-bold text-center text-white mb-12">What <span className="text-primary">ReviewIQ</span> Does</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Card 1 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
               <div className="bg-emerald-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-emerald-500/20 group-hover:scale-110 transition shrink-0">
                 <Bug className="text-emerald-400 w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">Bug Detection</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 AI finds potential bugs and runtime errors with severity ratings and line-level precision.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
               <div className="bg-amber-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-amber-500/20 group-hover:scale-110 transition shrink-0">
                 <Lightbulb className="text-amber-400 w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">Smart Suggestions</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Get before/after code improvements and refactoring advice from a senior engineer perspective.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
-              <div className="bg-yellow-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-yellow-500/20 group-hover:scale-110 transition shrink-0">
-                <Star className="text-yellow-400 w-6 h-6" />
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
+              <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-primary/20 group-hover:scale-110 transition shrink-0">
+                <Star className="text-primary w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">Quality Score</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Receive a 1-10 quality rating with detailed explanations of strengths and weaknesses in your structure.
               </p>
             </div>
 
             {/* Card 4 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
               <div className="bg-blue-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-blue-500/20 group-hover:scale-110 transition shrink-0">
                 <BookOpen className="text-blue-400 w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">Auto Documentation</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Automatically generate robust docs explaining what each function and module does to save you hours of writing.
               </p>
             </div>
 
             {/* Card 5 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
-              <div className="bg-purple-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-purple-500/20 group-hover:scale-110 transition shrink-0">
-                <LinkIcon className="text-purple-400 w-6 h-6" />
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
+              <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-primary/20 group-hover:scale-110 transition shrink-0">
+                <LinkIcon className="text-primary w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">GitHub Integration</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Paste code or seamlessly enter a public GitHub repo URL — we automatically fetch and analyze the files for you.
               </p>
             </div>
 
             {/* Card 6 */}
-            <div className="bg-[#0f111a]/50 hover:bg-[#151926] border border-white/5 p-8 rounded-2xl transition duration-300 group">
-              <div className="bg-rose-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-rose-500/20 group-hover:scale-110 transition shrink-0">
+            <div className="bg-card/50 hover:bg-secondary border border-white/5 p-8 rounded-2xl transition duration-300 group">
+               <div className="bg-rose-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-rose-500/20 group-hover:scale-110 transition shrink-0">
                 <Download className="text-rose-400 w-6 h-6" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3">Export Reports</h4>
-              <p className="text-slate-400 leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Download your full automated review board as a clean Markdown file for documentation or team sharing.
               </p>
             </div>
@@ -165,36 +165,36 @@ export default function Home() {
         </div>
 
         {/* HOW IT WORKS SECTION */}
-        <div className="relative z-10 bg-[#0a0c14] py-24 border-t border-white/5">
+        <div className="relative z-10 bg-background/50 py-24 border-t border-white/5">
           <div className="max-w-6xl mx-auto px-6 text-center">
             <h3 className="text-3xl font-bold text-white mb-16">How It Works</h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 relative">
               {/* Connector Line for larger screens */}
-              <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
+              <div className="hidden md:block absolute top-8 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
               
               <div className="flex flex-col items-center relative z-10">
-                <div className="w-16 h-16 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-black text-2xl shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] mb-6">1</div>
+                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-2xl shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] mb-6">1</div>
                 <h4 className="text-lg font-bold text-white mb-2">Sign In</h4>
                 <p className="text-slate-500 text-sm">Authenticate securely with Google or GitHub.</p>
               </div>
 
               <div className="flex flex-col items-center relative z-10">
-                <div className="w-16 h-16 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-black text-2xl shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] mb-6">2</div>
+                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-2xl shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] mb-6">2</div>
                 <h4 className="text-lg font-bold text-white mb-2">Submit Code</h4>
-                <p className="text-slate-500 text-sm">Paste any code snippet or link a repository.</p>
+                <p className="text-muted-foreground text-sm">Paste any code snippet or link a repository.</p>
               </div>
 
               <div className="flex flex-col items-center relative z-10">
-                <div className="w-16 h-16 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-black text-2xl shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] mb-6">3</div>
+                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-2xl shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] mb-6">3</div>
                 <h4 className="text-lg font-bold text-white mb-2">AI Reviews</h4>
-                <p className="text-slate-500 text-sm">Llama-3 & Gemini analyze for code quality & bugs.</p>
+                <p className="text-muted-foreground text-sm">Llama-3 & Gemini analyze for code quality & bugs.</p>
               </div>
 
               <div className="flex flex-col items-center relative z-10">
-                <div className="w-16 h-16 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 font-black text-2xl shadow-[0_0_30px_-5px_rgba(99,102,241,0.4)] mb-6">4</div>
+                <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-2xl shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] mb-6">4</div>
                 <h4 className="text-lg font-bold text-white mb-2">Get Results</h4>
-                <p className="text-slate-500 text-sm">Instant bug reports, fixes, score, and docs.</p>
+                <p className="text-muted-foreground text-sm">Instant bug reports, fixes, score, and docs.</p>
               </div>
             </div>
             

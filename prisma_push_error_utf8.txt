@@ -1,0 +1,38 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "neondb", schema "public" at "ep-sparkling-haze-a1focrj7.ap-southeast-1.aws.neon.tech"
+
+node.exe : Error: 
+P1001: Can't reach 
+database server at `ep-
+sparkling-haze-a1focrj7
+.ap-southeast-1.aws.neo
+n.tech:5432`
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : 
+NotSpecified: (E    
+rror: P1001: C...neon  
+  .tech:5432`:String) 
+[    ], RemoteException
+    + 
+FullyQualifiedError    
+Id : NativeCommandErr  
+  or
+ 
+
+Please make sure your 
+database server is 
+running at `ep-sparklin
+g-haze-a1focrj7.ap-sout
+heast-1.aws.neon.tech:5
+432`.
