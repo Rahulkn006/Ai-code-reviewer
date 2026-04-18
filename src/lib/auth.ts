@@ -6,7 +6,8 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "./prisma"
 
 export const authOptions: NextAuthOptions = {
-  adapter: process.env.NODE_ENV === "development" ? undefined : PrismaAdapter(prisma),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  adapter: PrismaAdapter(prisma) as any,
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID!,

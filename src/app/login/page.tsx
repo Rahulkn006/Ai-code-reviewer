@@ -1,11 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { signIn, useSession } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { AlertCircle, Loader2 } from "lucide-react"
 
-export default function LoginPage() {
+function LoginContent() {
   const { status } = useSession()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -21,7 +21,7 @@ export default function LoginPage() {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center p-20">
         <Loader2 className="w-10 h-10 text-primary animate-spin mb-4" />
         <p className="text-muted-foreground animate-pulse">Checking authentication...</p>
       </div>
@@ -93,7 +93,7 @@ export default function LoginPage() {
       </div>
 
       {/* FEATURES SECTION (Simplified for Login Page) */}
-      <div className="mt-16 w-full max-w-6xl">
+      <div className="mt-16 w-full max-w-6xl pb-20">
         <h2 className="text-2xl font-semibold text-center mb-10">
           What AI Code Reviewer Does
         </h2>
@@ -122,5 +122,18 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
+        <Loader2 className="w-10 h-10 text-primary animate-spin mb-4" />
+        <p className="text-muted-foreground animate-pulse">Loading login...</p>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   )
 }
