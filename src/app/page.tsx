@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   if (status === "authenticated") {
-    return <div className="min-h-screen bg-background text-foreground flex items-center justify-center text-2xl">Redirecting to Dashboard...</div>
+    return null; // Let the useEffect handle the redirect
   }
 
   return (
@@ -54,7 +54,7 @@ export default function Home() {
 
             <div className="space-y-4">
               <button
-                onClick={() => signIn("google")}
+                onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
                 className="w-full flex items-center justify-center gap-3 bg-white text-slate-900 py-3.5 rounded-xl font-semibold hover:bg-slate-100 transition duration-200"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Home() {
               </button>
 
               <button
-                onClick={() => signIn("github")}
+                onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
                 className="w-full flex items-center justify-center gap-3 bg-[#1e2330] border border-white/5 text-white py-3.5 rounded-xl font-semibold hover:bg-[#252b3b] transition duration-200"
               >
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ export default function Home() {
 
               {process.env.NODE_ENV === "development" && (
                 <button
-                  onClick={() => signIn("credentials")}
+                  onClick={() => signIn("credentials", { callbackUrl: "/dashboard" })}
                   className="w-full flex items-center justify-center gap-3 bg-red-600/20 text-red-400 border border-red-500/30 py-3.5 rounded-xl font-semibold hover:bg-red-600/30 transition duration-200 mt-4"
                 >
                   <Bug className="w-5 h-5" />
